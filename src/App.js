@@ -1,25 +1,86 @@
-import logo from './logo.svg';
-import './App.css';
-
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import React, { useState } from 'react'
+import Led from './componentes/Led'
+export default function App(){
+  const [ligado, setLigado]= useState(false)
+  const cancelar=(obj)=>{
+    return obj.preventDefault()
+  }
+  return(
+    <>
+    <Led ligado={ligado}setLigado={setLigado}/>
+    <a
+      href='http://youtube.com/xedss'
+      target='_blank'
+      onClick={(e)=>cancelar(e)}
+    >
+      youtube
+    </a>
+    </>
+  )
 }
 
-export default App;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// import React from 'react'
+// import './App.css'
+// import Relogio from './componentes/Relogio'
+
+
+
+// export default function App(){
+//   const textoDestaque={
+//     color:'#00f',
+//     fontSize:'3em'
+//   }
+
+
+//   return (
+//     <>
+//     <section className='caixa'>
+//       <Relogio/>
+//       <h1 style={{color:'#f00', fontSize:'5em'}}>Curso de React</h1>  
+//       <h2 style={textoDestaque}>Curso de React</h2>
+//       <p className='texto'>Estamos aprendendo React</p>
+//       <a href='https://www.google.com.br' target='_blank'rel="noreferrer">Google</a> 
+//     </section>
+//     </>
+//   )
+//   }
+  

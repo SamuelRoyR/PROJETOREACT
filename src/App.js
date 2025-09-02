@@ -1,28 +1,109 @@
-import React, { useState } from 'react'
-import Led from './componentes/Led'
+import React, {useState} from 'react'
+import TabelaIMC from './componentes/TabelaIMC'
+import Peso from './componentes/Peso'
+import Altura from './componentes/Altura'
+import Calcular from './componentes/Calcular'
+import Resultado from './componentes/Resultado'
+// const tabelaIMC=()=>{
+//   return(
+//     <table border='1' style={{borderCollapse:'collapse'}}>
+//     <thead>
+//       <tr>
+//         <th>
+//           Classificação
+//         </th>
+//         <th>
+//           IMC
+//         </th>
+//       </tr>
+//     </thead>
+//     <tbody>
+//       <tr>
+//         <td>Abaixo do peso</td>
+//         <td>18.5</td>
+//       </tr>
+//       <tr>
+//         <td>Peso normal</td>
+//         <td>18.5 - 24.9</td>
+//       </tr>
+//       <tr>
+//         <td>Sobrepeso</td>
+//         <td>25 - 29.9</td>
+//       </tr>
+//       <tr>
+//         <td>Obesidade Grau 1</td>
+//         <td>30 e 34,9</td>
+//       </tr>
+//       <tr>
+//         <td>Obesidade Grau 2</td>
+//         <td>35 e 39,9</td>
+//       </tr>
+//       <tr>
+//         <td>Obesidade Grau 3</td>
+//         <td>40 ou mais</td>
+//       </tr>
+//     </tbody>
+//     </table>
+//   )
+// }
+
+// const fpeso=(p,sp)=>{
+//   return(
+//     <div>
+//       <label>
+//         Peso
+//         <input type='text' value={p} onChange={(e)=>{sp(e.target.value)}}/>
+//       </label>
+//     </div>
+//   )
+// }
+
+// const faltura=(a,sa)=>{
+//   return(
+//     <div>
+//       <label>
+//         Altura
+//         <input type='text' value={a} onChange={(e)=>{sa(e.target.value)}}/>
+//       </label>
+//     </div>
+//   )
+// }
+
+// const fcalcular=(p,a,sr)=>{
+
+//     const calc=()=>{
+//       sr(p/(a*a))
+//     }
+//     return(
+//       <div>
+//         <button onClick={calc}>Calcular</button>
+//       </div>
+//     )
+// }
+
+// const fresultado=(r)=>{
+//   return(
+//     <div>
+//       <p>Resultado: {r.toFixed(2)}</p>
+//     </div>
+//   )
+// }
+
 export default function App(){
-  const [ligado, setLigado]= useState(false)
-  const cancelar=(obj)=>{
-    return obj.preventDefault()
-  }
-  return(
+  const [resultado, setResultado] = useState(0)
+  const [peso, setPeso] = useState(0)
+  const [altura, setAltura] = useState(0)
+
+  return (
     <>
-    <Led ligado={ligado}setLigado={setLigado}/>
-    <a
-      href='http://youtube.com/xedss'
-      target='_blank'
-      onClick={(e)=>cancelar(e)}
-    >
-      youtube
-    </a>
+      <Peso p={peso} sp={setPeso}/>
+      <Altura a={altura} sa={setAltura}/>
+      <Calcular p={peso} a={altura} sr={setResultado}/>
+      <TabelaIMC/>
+      <Resultado r={resultado}/>
     </>
-  )
+    )
 }
-
-
-
-
-
 
 
 

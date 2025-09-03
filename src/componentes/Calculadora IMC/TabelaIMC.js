@@ -44,9 +44,12 @@
 //   )
 // }
 
-export default function TabelaIMC(){
+import React from 'react'
+
+
+export default class TabelaIMC extends React.Component{
+  render(){
     return(
-        <>
         <table border='1' style={{borderCollapse:'collapse'}}>
             <thead>
               <tr>
@@ -84,7 +87,7 @@ export default function TabelaIMC(){
                 <td>40 ou mais</td>
               </tr>
             </tbody>
-            </table>
-          </>
+          </table>
     )
+  }
 }
